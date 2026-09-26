@@ -1,3 +1,5 @@
+[下載/download](https://github.com/alanchan20121201-prog/File-Transfer/releases/tag/windows)
+
 # 區網快傳 LAN Quick Share
 
 > 免登入、免雲端、同一個 Wi-Fi 即可互傳文字與任意檔案的輕量工具。
