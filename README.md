@@ -5,6 +5,22 @@
 > 免登入、免雲端、同一個 Wi-Fi 即可互傳文字與任意檔案的輕量工具。
 > A lightweight, login-free and cloud-free tool for sharing text and any files over the same Wi-Fi.
 
+## 四種語言版本 / Four language builds
+
+| 源碼目錄 | EXE | 語言 | 網頁埠 |
+| --- | --- | --- | --- |
+| `zh-CN/` | `LANQuickShare-zh-CN.exe` | 简体中文 | 8100 |
+| `zh/` | `LANQuickShare-zh-TW.exe` | 繁體中文 | 8080 |
+| `en/` | `LANQuickShare-en.exe` | English | 8181 |
+| `ja/` | `LANQuickShare-ja.exe` | 日本語 | 8120 |
+
+四個版本各自獨立（沿用原本「兩個語系不同埠」的設計），可同時執行而不衝突。介面文案集中在各語系目錄的 `.py` 裡；`build-4lang.py` 會用 PyInstaller 一次打包出四個 EXE。
+
+```bash
+pip install pyinstaller
+python build-4lang.py
+```
+
 <details open>
 <summary>中文</summary>
 
@@ -27,7 +43,7 @@
 - 傳輸記錄（方向／裝置／類型／內容／大小），雙擊開啟、可複製文字
 
 ### 手機網頁
-- 內建網頁伺服器（中文版 :8080／英文版 :8181）
+- 內建網頁伺服器（簡中 :8100／繁中 :8080／英文 :8181／日文 :8120）
 - 手機瀏覽器輸入網址即可用，免裝 App、免登入
 - 上傳照片／檔案到電腦（可複選、顯示進度）
 - 傳送文字到電腦
@@ -38,7 +54,7 @@
 - 全螢幕最大化、無傳統選單列
 - 自訂圖示（視窗標題列 + 工作列）
 - 拖放傳檔（從檔案總管拖進傳送區）
-- 中英雙語介面（兩個獨立版本，網頁埠不同）
+- 四語介面（四個獨立版本，網頁埠各自不同）：簡體中文 / 繁體中文 / English / 日本語
 
 ### 安裝
 - 免安裝版：單一 EXE 直接執行
@@ -48,7 +64,7 @@
 - 語言：Python 3.12 + tkinter（GUI）
 - 發現：UDP 廣播（埠 45678）
 - 傳輸：HTTP（埠 45679 起自動避讓）
-- 網頁：內建 HTTP 伺服器（8080／8181）+ SSE 推播
+- 網頁：內建 HTTP 伺服器（8080 / 8100 / 8120 / 8181）+ SSE 推播
 - 打包：PyInstaller（--onefile --noconsole）
 
 ## 常見問題
@@ -86,7 +102,7 @@
 - Transfer history (direction/device/type/content/size); double-click to open, copy text
 
 ### Mobile Web
-- Built-in web server (Chinese :8080 / English :8181)
+- Built-in web server (zh-CN :8100 / zh-TW :8080 / English :8181 / Japanese :8120)
 - Open the URL in a mobile browser — no app, no login
 - Upload photos/files to the computer (multi-select, progress shown)
 - Send text to the computer
@@ -97,7 +113,7 @@
 - Maximized fullscreen, no traditional menu bar
 - Custom icon (title bar + taskbar)
 - Drag-and-drop sending (drag from File Explorer into the send area)
-- Chinese & English UI (two separate builds, different web ports)
+- Four-language UI (four separate builds, each with its own web port): Simplified Chinese / Traditional Chinese / English / Japanese
 
 ### Installation
 - Portable: single EXE, run directly
@@ -107,7 +123,7 @@
 - Language: Python 3.12 + tkinter (GUI)
 - Discovery: UDP broadcast (port 45678)
 - Transfer: HTTP (port 45679, auto-increment if busy)
-- Web: built-in HTTP server (8080/8181) + SSE push
+- Web: built-in HTTP server (8080 / 8100 / 8120 / 8181) + SSE push
 - Packaging: PyInstaller (--onefile --noconsole)
 
 ## FAQ
